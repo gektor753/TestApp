@@ -1,0 +1,8 @@
+<div><span>Запись: </span>{{ record.title }}</div>
+<div>
+  <input [(ngModel)]="record.title" placeholder="title record"/> <br><br>
+  <input [(ngModel)]="record.content" placeholder="content record"/>
+</div>
+<button (click)="blogService.addRecord(record)">Сохранить</button>
+<button (click)="blogService.clearRecord(id)">Удалить</button>
+<button routerLink="/list">Назад</button>
