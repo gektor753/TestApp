@@ -1,1 +1,7 @@
-<p>blog-list works!</p>
+<ul>
+  <li *ngFor="let item of blogService.getArray(); let i = index">
+    <app-blog-item [item]="item"></app-blog-item>
+  </li>
+</ul>
+<br><br>
+<button [routerLink]="'/new'">добавить</button>
