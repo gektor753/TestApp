@@ -1,10 +1,11 @@
-h1 {
-  color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40px;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=blog-page.component.css.map */

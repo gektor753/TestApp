@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Record } from '../core/types';
-
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BlogService {
-  private array: Array<Record> = [...new Array(10)].map((x, i) => ({id: i, content: i.toString(), title: i.toString()}));
+  private array: Array<Record> = [] //= [...new Array(10)].map((x, i) => ({id: i, content: i.toString(), title: i.toString()}));
 
-  constructor() { }
+  constructor(public localStorageService: LocalStorageService) { }
 
   saveNewRecord(record: Record){
     this.array.push(record);
     record.id = this.array.indexOf(record) + 1
+    this.localStorageService.saveRecords(this.array) //1
   }
 
   getRecord(id: number): Record | undefined {
@@ -25,16 +26,14 @@ export class BlogService {
     }
     return undefined;
   }
-  getIt(){
-    console.log(this.array[0])
-  }
   deleteEditedRecord(id:number){
+
     this.array = this.array.filter((x) => {
       return id !== x.id
     })
+    this.localStorageService.saveRecords(this.array) //1.1
   }
   getArray(): Record[] {
-    console.log(this.array.slice());
     return this.array.slice();
   }
   saveEditedRecord(record: Record){
@@ -47,6 +46,11 @@ export class BlogService {
     }
     item.title = record.title
     item.content = record.content
+    this.localStorageService.saveRecords(this.array) //3
+  }
+
+  initialize()  {
+   return this.array = this.localStorageService.getRecords();
   }
 
 

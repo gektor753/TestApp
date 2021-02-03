@@ -14,23 +14,29 @@ export class EditBlogPageComponent implements OnInit {
     content: '',
   };
   public isNew = false;
-  public id = 1;
+  public id: number = 1;
+  navigation(){ this.router.navigate(['/blogs/list'])}
   saveButton(){
     if(!this.record.id){
       this.blogService.saveNewRecord(this.record)
+      this.navigation()
     }
     else{
       this.blogService.saveEditedRecord(this.record)
+      this.navigation()
     }
   }
-  deleteButton(){
-    if(!this.record.id){
-      this.router.navigate(['/list'])
-    }
-    else {
-      this.blogService.deleteEditedRecord(this.record.id)
+  deleteButton() {
+    if (window.confirm('Вы действительно хотите удалить эту запись?')) {
+      if (!this.record.id) {
+        this.navigation()
+      } else {
+        this.blogService.deleteEditedRecord(this.record.id)
+        this.navigation()
+      }
     }
   }
+
   constructor(public blogService: BlogService, private activatedRoute: ActivatedRoute, public router: Router) {
   }
 

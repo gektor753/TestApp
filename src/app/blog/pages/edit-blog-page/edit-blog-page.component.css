@@ -5,6 +5,7 @@
   flex-direction: column;
   margin: 10px;
 }
+
 button#saveButton {
   background-color: #a2c8ff;
   border-color: #63a6ff;
@@ -12,17 +13,17 @@ button#saveButton {
   color: black;
   width: 120px;
   height: 45px;
-
 }
-button#deleteButton{
+
+button#deleteButton {
   background-color: #ff7a7a;
   border-color: #ff2020;
   font-weight: bold;
   color: black;
   width: 120px;
   height: 45px;
-
 }
+
 input#title {
   box-sizing: border-box;
   background-color: #f1f1f1;
@@ -33,6 +34,7 @@ input#title {
   margin-bottom: 20px;
   border-width: thin;
 }
+
 textarea#content {
   box-sizing: border-box;
   background-color: #f1f1f1;
@@ -44,6 +46,7 @@ textarea#content {
   border-width: thin;
   height: 500px;
 }
+
 div#buttons {
   display: flex;
   margin-top: 20px;
@@ -51,6 +54,7 @@ div#buttons {
   width: 100%;
   justify-content: space-between;
 }
+
 button#returnButton {
   background-color: #a2c8ff;
   border-color: #63a6ff;
@@ -60,3 +64,5 @@ button#returnButton {
   height: 45px;
   margin-bottom: 40px;
 }
+
+/*# sourceMappingURL=edit-blog-page.component.css.map */

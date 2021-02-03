@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import {FormsModule} from '@angular/forms';
-import {BlogModule} from './blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +12,6 @@ import {BlogModule} from './blog/blog.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BlogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

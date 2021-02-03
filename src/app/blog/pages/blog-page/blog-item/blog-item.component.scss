@@ -12,26 +12,20 @@ div#content {
 
   line-height: 20px;
   font-size: 20px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  word-wrap: break-word;
+  overflow-y: auto;
 }
 div#title {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
 }
-.flex-container p {
-  margin: 0; /* Убираем внешний отступ */
-  -webkit-line-clamp: 2; /* Число отображаемых строк */
-  display: -webkit-box; /* Включаем флексбоксы */
-  -webkit-box-orient: vertical; /* Вертикальная ориентация */
-  overflow: hidden;
-}
+
 button#enter {
   color: black;
   background-color: #a2c8ff;
   font-weight: bold;
-  border-color: #a2c8ff;
-
+  border-color: #63a6ff;
+  margin-top: 10px;
 }
+

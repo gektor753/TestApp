@@ -1,10 +1,19 @@
+<div class="flex-container">
 <ng-container *ngIf="record || isNew">
-  <div><span>Запись: </span>{{ record.title }}</div>
-  <div>
-    <input [(ngModel)]="record.title" /> <br><br>
-    <input [(ngModel)]="record.content" />
+  <div id="buttonReturn">
+    <button id="returnButton" routerLink="/blogs/list">Назад</button>
   </div>
-  <button (click)="saveButton()">Сохранить</button>
-  <button (click) = "deleteButton()">Удалить</button>
-  <button routerLink="/list">Назад</button>
+  <div><span>Запись </span>"{{ record.title }}"</div>
+
+    <input id="title" [(ngModel)]="record.title" />
+
+
+    <textarea id="content" [(ngModel)]="record.content"></textarea>
+<div id="buttons">
+  <button id="deleteButton" (click) = "deleteButton()">Удалить</button>
+  <button id="saveButton" (click)="saveButton()">Сохранить</button>
+
+</div>
+
 </ng-container>
+</div>
