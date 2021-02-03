@@ -1,1 +1,37 @@
+.flex-container {
+  display: flex;
+  align-content: center;
+  flex-flow: row wrap;
+  flex-direction: column;
+}
+div#content {
 
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 127px;
+
+  line-height: 20px;
+  font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+div#title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.flex-container p {
+  margin: 0; /* Убираем внешний отступ */
+  -webkit-line-clamp: 2; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden;
+}
+button#enter {
+  color: black;
+  background-color: #a2c8ff;
+  font-weight: bold;
+  border-color: #a2c8ff;
+
+}

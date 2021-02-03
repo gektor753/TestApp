@@ -34,6 +34,7 @@ export class EditBlogPageComponent implements OnInit {
   constructor(public blogService: BlogService, private activatedRoute: ActivatedRoute, public router: Router) {
   }
 
+
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       if (!data.isNew) {

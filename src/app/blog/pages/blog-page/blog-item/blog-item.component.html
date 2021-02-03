@@ -1,6 +1,12 @@
-<table>
-  {{ item.title }} <br>
-  {{ item.content }}
+<div class="flex-container">
 
-</table>
-<button [routerLink]="'/blogs/edit/' + item.id">вперед</button>
+<div id="title">{{ item.title }} </div>
+
+
+<div id="content"> <p>{{ item.content }} </p> </div>
+
+<br>
+<button id="enter" [routerLink]="'/blogs/edit/' + item.id">перейти</button>
+<br>
+
+</div>
