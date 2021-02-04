@@ -65,4 +65,11 @@ button#returnButton {
   margin-bottom: 40px;
 }
 
+.span-container {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=edit-blog-page.component.css.map */

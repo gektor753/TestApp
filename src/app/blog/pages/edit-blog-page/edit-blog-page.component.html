@@ -1,19 +1,15 @@
-<div class="flex-container">
-<ng-container *ngIf="record || isNew">
-  <div id="buttonReturn">
-    <button id="returnButton" routerLink="/blogs/list">Назад</button>
-  </div>
-  <div><span>Запись </span>"{{ record.title }}"</div>
-
+<span class ="span-container" *ngIf="notFound; else isFound">404</span>
+<ng-template #isFound class="flex-container">
+  <ng-container *ngIf="record || isNew">
+    <div id="buttonReturn">
+      <button id="returnButton" routerLink="/blogs/list">Назад</button>
+    </div>
+    <div><span>Запись </span>"{{ record.title }}"</div>
     <input id="title" [(ngModel)]="record.title" />
-
-
     <textarea id="content" [(ngModel)]="record.content"></textarea>
-<div id="buttons">
-  <button id="deleteButton" (click) = "deleteButton()">Удалить</button>
-  <button id="saveButton" (click)="saveButton()">Сохранить</button>
-
-</div>
-
-</ng-container>
-</div>
+    <div id="buttons">
+     <button id="deleteButton" (click) = "deleteButton()">Удалить</button>
+     <button id="saveButton" [disabled]="record.title.trim().length===0 ||record.content.trim().length===0" (click)="saveButton()">Сохранить</button>
+    </div>
+  </ng-container>
+</ng-template>

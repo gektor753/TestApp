@@ -15,7 +15,8 @@ export class EditBlogPageComponent implements OnInit {
   };
   public isNew = false;
   public id: number = 1;
-  navigation(){ this.router.navigate(['/blogs/list'])}
+  public notFound = false;
+  navigation(){ this.router.navigate(['/blogs/list']).then()}
   saveButton(){
     if(!this.record.id){
       this.blogService.saveNewRecord(this.record)
@@ -36,11 +37,7 @@ export class EditBlogPageComponent implements OnInit {
       }
     }
   }
-
-  constructor(public blogService: BlogService, private activatedRoute: ActivatedRoute, public router: Router) {
-  }
-
-
+  constructor(public blogService: BlogService, private activatedRoute: ActivatedRoute, public router: Router) {}
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       if (!data.isNew) {
@@ -50,13 +47,14 @@ export class EditBlogPageComponent implements OnInit {
           if (currentRecord) {
             this.record = currentRecord;
           }
+          else{
+            this.notFound = true
+          }
         })
       }
       else{
         this.isNew  = true;
       }
-
-
     })
   }
 }

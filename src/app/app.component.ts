@@ -7,7 +7,6 @@ import { BlogService } from './blog/blog.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   constructor(public blogService: BlogService) {
   }
   ngOnInit() {

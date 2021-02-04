@@ -4,21 +4,16 @@
   justify-content: space-between;
   align-content: space-between;
   align-items: stretch;
-
   padding: 70px;
-
 }
-
 li {
   width: 30%;
   height: 220px;
 }
 ul {
   list-style-type: none;
-
 }
 button#add {
-
   right: 3%;
   bottom: 10%;
   background-color: #a2c8ff;
@@ -28,8 +23,6 @@ button#add {
   width: 120px;
   height: 45px;
   position: absolute;
-
-
 }
 input#title {
   background-color: #f1f1f1;
@@ -39,5 +32,4 @@ input#title {
   font-size: 20px;
   word-wrap: break-word;
   overflow-y: auto;
-
 }

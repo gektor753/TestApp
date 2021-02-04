@@ -5,13 +5,13 @@ import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-
 export class BlogService {
-  private array: Array<Record> = [] //= [...new Array(10)].map((x, i) => ({id: i, content: i.toString(), title: i.toString()}));
+  private array: Array<Record> = [];
 
-  constructor(public localStorageService: LocalStorageService) { }
+  constructor(public localStorageService: LocalStorageService) {
+  }
 
-  saveNewRecord(record: Record){
+  saveNewRecord(record: Record) {
     this.array.push(record);
     record.id = this.array.indexOf(record) + 1
     this.localStorageService.saveRecords(this.array) //1
@@ -26,21 +26,22 @@ export class BlogService {
     }
     return undefined;
   }
-  deleteEditedRecord(id:number){
 
+  deleteEditedRecord(id: number) {
     this.array = this.array.filter((x) => {
       return id !== x.id
     })
     this.localStorageService.saveRecords(this.array) //1.1
   }
+
   getArray(): Record[] {
     return this.array.slice();
   }
-  saveEditedRecord(record: Record){
-    let item = this.array.find((x) =>{
 
+  saveEditedRecord(record: Record) {
+    let item = this.array.find((x) => {
       return record.id === x.id
-    } )
+    })
     if (!item) {
       return;
     }
@@ -49,14 +50,10 @@ export class BlogService {
     this.localStorageService.saveRecords(this.array) //3
   }
 
-  initialize()  {
-   return this.array = this.localStorageService.getRecords();
+  initialize() {
+    return this.array = this.localStorageService.getRecords();
   }
-
-
-  /*getNewId(): number {
-    return this.array.map(x => x.id).reduce((a, b) => a < b ? a : b) + 1;
-  }*/
 }
+
 
 
