@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Record } from '../core/types';
 import { LocalStorageService } from './local-storage.service';
+import { EasterEggService } from '../easter-egg.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,14 @@ import { LocalStorageService } from './local-storage.service';
 export class BlogService {
   private array: Array<Record> = [];
 
-  constructor(public localStorageService: LocalStorageService) {
+  constructor(public localStorageService: LocalStorageService, public easterEggService: EasterEggService) {
   }
 
   saveNewRecord(record: Record) {
     this.array.push(record);
     record.id = this.array.indexOf(record) + 1
-    this.localStorageService.saveRecords(this.array) //1
+    this.localStorageService.saveRecords(this.array)
+    this.isVisible(record.title)
   }
 
   getRecord(id: number): Record | undefined {
@@ -31,7 +33,7 @@ export class BlogService {
     this.array = this.array.filter((x) => {
       return id !== x.id
     })
-    this.localStorageService.saveRecords(this.array) //1.1
+    this.localStorageService.saveRecords(this.array)
   }
 
   getArray(): Record[] {
@@ -47,11 +49,20 @@ export class BlogService {
     }
     item.title = record.title
     item.content = record.content
-    this.localStorageService.saveRecords(this.array) //3
-  }
+    this.localStorageService.saveRecords(this.array)
+    }
 
   initialize() {
-    return this.array = this.localStorageService.getRecords();
+    if (this.localStorageService.getRecords()) {
+      return this.array = this.localStorageService.getRecords();
+    } else {
+      return this.array
+    }
+  }
+  isVisible(title: string){
+    if(title === "777"){
+      this.easterEggService.visibilitySubject.next(true)
+    }
   }
 }
 

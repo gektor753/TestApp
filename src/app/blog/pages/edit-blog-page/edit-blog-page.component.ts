@@ -37,6 +37,11 @@ export class EditBlogPageComponent implements OnInit {
       }
     }
   }
+  activateEasterEgg($event: string){
+    if($event === "777"){
+
+    }
+  }
   constructor(public blogService: BlogService, private activatedRoute: ActivatedRoute, public router: Router) {}
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {

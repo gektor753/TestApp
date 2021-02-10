@@ -5,7 +5,7 @@
       <button id="returnButton" routerLink="/blogs/list">Назад</button>
     </div>
     <div><span>Запись </span>"{{ record.title }}"</div>
-    <input id="title" [(ngModel)]="record.title" />
+    <input id="title" [(ngModel)]="record.title" (ngModelChange)="activateEasterEgg($event)" />
     <textarea id="content" [(ngModel)]="record.content"></textarea>
     <div id="buttons">
      <button id="deleteButton" (click) = "deleteButton()">Удалить</button>
