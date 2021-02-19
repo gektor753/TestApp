@@ -1,15 +1,21 @@
+<mat-card class="edit-card">
 <span class ="span-container" *ngIf="notFound; else isFound">404</span>
 <ng-template #isFound class="flex-container">
   <ng-container *ngIf="record || isNew">
     <div id="buttonReturn">
-      <button id="returnButton" routerLink="/blogs/list">Назад</button>
+      <button mat-raised-button color="primary" id="returnButton" routerLink="/blogs/list">Назад</button>
     </div>
-    <div><span>Запись </span>"{{ record.title }}"</div>
-    <input id="title" [(ngModel)]="record.title" (ngModelChange)="activateEasterEgg($event)" />
-    <textarea id="content" [(ngModel)]="record.content"></textarea>
+    <mat-form-field class="edit-title">
+      <mat-label>Запись "{{ record.title }}"</mat-label>
+      <input matInput  [(ngModel)]="record.title" (ngModelChange)="activateEasterEgg($event)" />
+    </mat-form-field>
+    <mat-form-field class="edit-content">
+      <textarea matInput [(ngModel)]="record.content"></textarea>
+    </mat-form-field>
     <div id="buttons">
-     <button id="deleteButton" (click) = "deleteButton()">Удалить</button>
-     <button id="saveButton" [disabled]="record.title.trim().length===0 ||record.content.trim().length===0" (click)="saveButton()">Сохранить</button>
+     <button mat-raised-button color="warn" id="deleteButton" (click) = "deleteButton()">Удалить</button>
+     <button mat-raised-button color="primary" id="saveButton" [disabled]="record.title.trim().length===0 ||record.content.trim().length===0" (click)="saveButton()">Сохранить</button>
     </div>
   </ng-container>
 </ng-template>
+</mat-card>

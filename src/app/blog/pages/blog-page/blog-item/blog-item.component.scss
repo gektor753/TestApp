@@ -1,10 +1,10 @@
-.flex-container {
+.mat-card .flex-container {
   display: flex;
   align-content: center;
   flex-flow: row wrap;
   flex-direction: column;
 }
-div#content {
+.mat-card-content  {
   background-color: #f1f1f1;
   width: 100%;
   height: 127px;
@@ -12,17 +12,20 @@ div#content {
   font-size: 20px;
   word-wrap: break-word;
   overflow-y: auto;
+  color: black;
 }
-div#title {
-  text-align: center;
+.mat-card-header{
   font-size: 25px;
-  font-weight: bold;
+  justify-content: center;
 }
-button#enter {
+
+.enter {
   color: black;
   background-color: #a2c8ff;
-  font-weight: bold;
   border-color: #63a6ff;
   margin-top: 10px;
 }
-
+.mat-card-actions {
+  display: flex;
+  justify-content: center;
+}

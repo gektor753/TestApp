@@ -13,27 +13,29 @@ export class BlogService {
   }
 
   saveNewRecord(record: Record) {
+    const length = this.array.length;
     this.array.push(record);
-    record.id = this.array.indexOf(record) + 1
-    this.localStorageService.saveRecords(this.array)
-    this.isVisible(record.title)
+    const last = this.array[length - 1];
+    record.id = length > 0 ? (this.array[length - 1].id as number) + 1 : 1;
+    this.localStorageService.saveRecords(this.array);
+    this.isVisible(record.title);
   }
 
   getRecord(id: number): Record | undefined {
     const item = this.array.find((x) => {
-      return id === x.id
+      return id === x.id;
     });
     if (item) {
-      return {...item}
+      return {...item};
     }
     return undefined;
   }
 
   deleteEditedRecord(id: number) {
     this.array = this.array.filter((x) => {
-      return id !== x.id
-    })
-    this.localStorageService.saveRecords(this.array)
+      return id !== x.id;
+    });
+    this.localStorageService.saveRecords(this.array);
   }
 
   getArray(): Record[] {
@@ -41,27 +43,28 @@ export class BlogService {
   }
 
   saveEditedRecord(record: Record) {
-    let item = this.array.find((x) => {
-      return record.id === x.id
-    })
+    const item = this.array.find((x) => {
+      return record.id === x.id;
+    });
     if (!item) {
       return;
     }
-    item.title = record.title
-    item.content = record.content
-    this.localStorageService.saveRecords(this.array)
+    item.title = record.title;
+    item.content = record.content;
+    this.localStorageService.saveRecords(this.array);
     }
 
   initialize() {
     if (this.localStorageService.getRecords()) {
+      console.log(this.localStorageService.getRecords());
       return this.array = this.localStorageService.getRecords();
     } else {
-      return this.array
+      return this.array;
     }
   }
   isVisible(title: string){
-    if(title === "777"){
-      this.easterEggService.visibilitySubject.next(true)
+    if (title === '777'){
+      this.easterEggService.visibilitySubject.next(true);
     }
   }
 }

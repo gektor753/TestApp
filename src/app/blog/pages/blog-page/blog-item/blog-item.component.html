@@ -1,5 +1,13 @@
-<div class="flex-container">
-  <div id="title">{{ item.title }} </div>
-  <div id="content">{{ item.content }}</div>
-  <button id="enter" [routerLink]="'/blogs/edit/' + item.id">перейти</button>
-</div>
+<mat-card class="item-card">
+  <div class="flex-container">
+    <mat-card-header>
+    <mat-card-title> {{ item.title }} </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     {{ item.content }}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" class="enter" [routerLink]="'/blogs/edit/' + item.id">перейти</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

@@ -9,7 +9,7 @@
 
 li {
   width: 30%;
-  height: 220px;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -21,7 +21,6 @@ button#add {
   bottom: 10%;
   background-color: #a2c8ff;
   border-color: #63a6ff;
-  font-weight: bold;
   color: black;
   width: 120px;
   height: 45px;

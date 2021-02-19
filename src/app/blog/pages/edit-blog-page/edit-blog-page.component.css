@@ -9,7 +9,6 @@
 button#saveButton {
   background-color: #a2c8ff;
   border-color: #63a6ff;
-  font-weight: bold;
   color: black;
   width: 120px;
   height: 45px;
@@ -18,33 +17,31 @@ button#saveButton {
 button#deleteButton {
   background-color: #ff7a7a;
   border-color: #ff2020;
-  font-weight: bold;
   color: black;
   width: 120px;
   height: 45px;
 }
 
-input#title {
+.edit-title {
   box-sizing: border-box;
-  background-color: #f1f1f1;
   width: 100%;
   line-height: 20px;
-  font-size: 15px;
-  margin-top: 20px;
+  font-size: 20px;
   margin-bottom: 20px;
   border-width: thin;
 }
 
-textarea#content {
+.edit-content {
   box-sizing: border-box;
-  background-color: #f1f1f1;
   width: 100%;
   line-height: 20px;
-  font-size: 15px;
-  resize: none;
+  font-size: 20px;
   border-color: black;
   border-width: thin;
-  height: 500px;
+}
+
+textarea {
+  resize: none;
 }
 
 div#buttons {
@@ -58,7 +55,6 @@ div#buttons {
 button#returnButton {
   background-color: #a2c8ff;
   border-color: #63a6ff;
-  font-weight: bold;
   color: black;
   width: 120px;
   height: 45px;
